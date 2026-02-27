@@ -1,0 +1,157 @@
+{
+  "info": {
+    "_postman_id": "81bfcab0-cc72-4369-a33c-0dacd142f845",
+    "name": "E-commerce API Testing",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52601812",
+    "_collection_link": "https://go.postman.co/collection/52601812-81bfcab0-cc72-4369-a33c-0dacd142f845?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Get Users",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{Token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{Site url}}/public/v2/users",
+          "host": [
+            "{{Site url}}"
+          ],
+          "path": [
+            "public",
+            "v2",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Post User",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 201\", function () {\r",
+              "    pm.response.to.have.status(201);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "2d467fc9ebf34443ee70c311474ed2f8603945d15fcb3e69fe33155632bb901b",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": " {\r\n    \"name\": \"Rosta Duwal\",\r\n    \"gender\": \"Female\",\r\n    \"email\": \"ROSTa135124356@.com\",\r\n    \"status\": \"active\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{Site url}}/public/v2/users",
+          "host": [
+            "{{Site url}}"
+          ],
+          "path": [
+            "public",
+            "v2",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update User",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "Login API",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "2d467fc9ebf34443ee70c311474ed2f8603945d15fcb3e69fe33155632bb901b",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "Site_url",
+      "value": ""
+    },
+    {
+      "key": "Token",
+      "value": ""
+    },
+    {
+      "key": "user_id",
+      "value": ""
+    }
+  ]
+}
